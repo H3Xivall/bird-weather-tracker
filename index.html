@@ -1,28 +1,103 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>Bird Weather Tracker</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>localBirdwatching</h1>
-        <h2 class="h2">Lets go birding, what does the weather look like?</h2>
-        <form class="weather-input"></form>
-        <input type="text" id="city-zipcode" placeholder="City or Zip Code">
-        <button class="submit-weather" id="city-zipcode-btn" onclick="getAreaLL(citySearch.value)">Submit</button>
-    
-        <h2>Looking that special bird?</h2>
-        <form class="bird-input"></form>
-        <input type="text" id="bird-name" placeholder="Bird Species">
-        <button class="submit-bird" id="bird-btn"></button>
-    </div>
-    <div>
-        <button class="favorites">Go to Favorites</button>
-    </div>
-    <script src="assets/app.js"></script>
-    <script src="assets/app2.js"></script>
-    </body>
-</html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Bird Tracker</title>
+</head>
+
+
+<body class="font-sans bg-gray-100 text-gray-800">
+
+    <header class="bg-blue-500 text-white py-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-3xl font-bold">
+                Bird<span class="text-yellow-300">Tracker</span>
+            </div>
+
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:text-yellow-300">Home</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Birds</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Weather</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">About</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-cover bg-center h-96 flex items-center text-white"
+             style="background-image: url('bird-watching.jpg');">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold leading-tight mb-4">Discover and Track Birds in Your Area</h1>
+            <p class="text-lg">Enter your zip code to explore local bird species and get real-time weather updates.</p>
+            <div class="mt-6">
+                <input type="text" id="birdType" placeholder="Enter the bird type"
+                       class="px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+                <button onclick="searchLocation()" class="bg-yellow-300 text-blue-500 px-4 py-2 ml-2 rounded-md hover:bg-yellow-400 focus:outline-none focus:ring focus:border-blue-300">
+                    Search Location
+                </button>
+                <div id="locationResult" class="mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto my-12">
+        <h2 class="text-3xl font-semibold mb-6">Featured Bird Species</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <img src="/images/robin.jpg" alt="Robin" class="w-full h-40 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">American Robin</h3>
+                <p class="text-gray-600">Discover the charming American Robin, a symbol of renewal and hope.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <img src="/images/blue-jay.jpg" alt="Blue Jay" class="w-full h-40 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">Blue Jay</h3>
+                <p class="text-gray-600">Meet the vibrant Blue Jay, known for its stunning blue feathers and energetic personality.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-md shadow-md">
+                <img src="/images/cardinal.jpg" alt="Northern Cardinal" class="w-full h-40 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">Northern Cardinal</h3>
+                <p class="text-gray-600">Explore the beauty of the Northern Cardinal, with its striking red plumage and melodic songs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-200 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold mb-6">Local Weather</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Today's Forecast</h3>
+                    <p class="text-gray-600">Get the latest weather forecast for today, including temperature and conditions.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Tomorrow's Forecast</h3>
+                    <p class="text-gray-600">Plan your day ahead with accurate weather predictions for tomorrow.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Weekly Outlook</h3>
+                    <p class="text-gray-600">Stay informed with the weekly weather outlook, so you're always prepared.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-500 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Bird Tracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+   
+
+</body>
+
+</html>
