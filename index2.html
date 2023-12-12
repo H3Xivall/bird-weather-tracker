@@ -13,16 +13,16 @@
     <div class="text-white">
         <h1 class="font-extrabold text-6xl">localBirdwatching</h1>
         <h2 class="h2">Let's go birding, what does the weather look like?</h2>
-        <form class="weather-input">
+        <div id="weather-input">
             <input type="text" id="city-zipcode" placeholder="City or Zip Code">
-            <button class="submit-weather border border-black text-black bg-white py-2 px-4 rounded">Submit</button>
-        </form>
+            <button class="submit-weather border border-black text-black bg-white py-2 px-4 rounded" id="city-zipcode-btn" onclick="getAreaLL()">Submit</button>
+        </div>
 
         <h2>Looking for that special bird?</h2>
-        <form class="bird-input">
+        <div class="bird-input">
             <input type="text" id="bird-name" placeholder="Bird Species">
-            <button class="submit-bird border border-black text-black bg-white py-2 px-4 rounded">Submit</button>
-        </form>
+            <button class="submit-bird border border-black text-black bg-white py-2 px-4 rounded" id="bird-btn">Submit</button>
+        </div>
 
         <button class="favorites border border-black text-black bg-white py-2 px-4 rounded">Go to Favorites</button>
     </div>
