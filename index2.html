@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <title>Bird Weather Tracker</title>
+
+<head>
+    <title>Bird Weather Tracker</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
- <body>
-   <div>
-    <h1>localBirdwatching</h1>
-    <h2 class="h2">Lets go birding, what does the weather look like?</h2>
-    <form class="weather-input"></form>
-    <input type="text" id="city-zipcode" placeholder="City or Zip Code">
-    <button class="submit-weather border border-black text-black bg-white py-2 px-4 rounded">
-        Submit
-    </button>
 
-    <h2>Looking for that special bird?</h2>
-    <form class="bird-input"></form>
-    <input type="text" id="bird-name" placeholder="Bird Species">
-    <button class="submit-bird border border-black text-black bg-white py-2 px-4 rounded">Submit
-    </button>
-</div>
+<body class="flex items-center justify-center bg-cover bg-center h-screen font-sans" style="background-image: url('https://birdsite.my.canva.site/birding/images/7e1051dffd4b284803ac86113e0a2e00.jpg');">
+    <div class="text-white">
+        <h1 class="font-extrabold text-6xl backdrop-blur-lg drop-shadow-lg">localBirdwatching</h1>
+        <h2 class="flex items-center justify-center p-2 font-semibold text-xl backdrop-blur-sm drop-shadow-lg h2">Let's go birding, what does the weather look like?</h2>
+            <div class="flex items-center justify-center">
+                 <input type="text" id="city-zipcode" placeholder="City or Zip Code" class="p-2 border rounded">
+                <button class="m-4 submit-weather border border-black text-black bg-white py-1 px-3 rounded">Submit</button>
+            </div>
+        
 
-   <div>
-       <button class="favorites border border-black text-black bg-white py-2 px-4 rounded">Go to Favorites</button>
-   </div>
-   <script src="assets/app.js"></script>
-   <script src="assets/app2.js"></script>
-   </body>
-   </html>
+        <h2 class="flex items-center justify-center p-2 font-semibold text-xl backdrop-blur-sm drop-shadow-lg rounded-lg">Looking for that special bird?</h2>
+            <div class="flex items-center justify-center">
+            <input type="text" id="bird-name" placeholder="Bird Species" class="p-2 border rounded">
+            <button class="m-4 submit-bird border border-black text-black bg-white py-2 px-4 rounded">Submit</button>
+    </div>
+        <div class="flex items-center justify-center p-3">
+            <button class="favorites border border-white text-white bg-black py-2 px-4 rounded">Go to Favorites</button>
+         </div>
 
+    <script src="assets/app.js"></script>
+    <script src="assets/app2.js"></script>
+</body>
+
+</html>
