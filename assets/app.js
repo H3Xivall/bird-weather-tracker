@@ -37,7 +37,8 @@ function getAreaLL() {
                 searchResults = data;
                 for (let i = 0; i < searchResults.length; i++) {
                     const areaName = document.querySelector('#birdResult');
-                    let tempName = searchResults[i];
+                    let tempName = [];
+                    tempName = searchResults[i];
                     const areaNameEl = document.createElement('li');
                     areaNameEl.textContent = `${searchResults[i].name}, ${searchResults[i].state}, ${searchResults[i].country}`;
                     areaNameEl.setAttribute('data-lat', searchResults[i].lat);
