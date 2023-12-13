@@ -4,12 +4,14 @@
 // Variables
 const weatherApiKey = 'fd4ad30d1c24c909806f019726e9f757';
 const ebirdApiKey = '1g81tibr9t8k';
-const weatherResults = [];
-const birdResults = [];
+let weatherResults = [];
+let birdResults = [];
 const citySearch = document.querySelector('#city-zipcode');
 const citySearchBtn = document.querySelector('#city-zipcode-btn');
 const birdSearch = document.querySelector('#bird-name');
 const birdSearchBtn = document.querySelector('#bird-btn');
+let allBirdResults = [];
+let searchResults = [];
 var myHeaders = new Headers();
 myHeaders.append("X-eBirdApiToken", ebirdApiKey);
 var requestOptions = {
@@ -19,7 +21,6 @@ var requestOptions = {
 };
 
 // Operations
-getAllBird();
 // Functions
 function getAreaLL() {
     let aName = citySearch.value.trim();
@@ -67,8 +68,7 @@ function getAllBird() {
     fetch(birdUrl, requestOptions).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data);
-                birdResults = data;
+                allBirdResults = data;
             });
         } else {
             console.log('Error: getAllBird(): ' + response.statusText);
