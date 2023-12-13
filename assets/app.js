@@ -19,7 +19,7 @@ var requestOptions = {
 };
 
 // Operations
-
+getAllBird();
 // Functions
 function getAreaLL() {
     let aName = citySearch.value.trim();
@@ -62,3 +62,16 @@ function getBird(lat, lon) {
         };
     });
 };
+function getAllBird() {
+    const birdUrl = `https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json`;
+    fetch(birdUrl, requestOptions).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                birdResults = data;
+            });
+        } else {
+            console.log('Error: getAllBird(): ' + response.statusText);
+        };
+    })
+}
