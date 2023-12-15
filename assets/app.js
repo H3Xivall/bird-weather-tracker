@@ -24,6 +24,7 @@ var requestOptions = {
 };
 let favBird = JSON.parse(localStorage.getItem('favBird')) || [];
 const birdName = document.querySelector('#bird-result');
+const weatherResultsEl = document.querySelector('#weather-result');
 
 // Operations
 citySearchBtn.addEventListener('click', getAreaLL);
@@ -70,6 +71,7 @@ function getWeather(lat, lon) {
             response.json().then(function(data) {
                 console.log(data);
                 weatherResults = data;
+                displayWeather();
             });
         } else {
             console.log('Error: getWeather(): ' + response.statusText);
@@ -129,3 +131,16 @@ function displayBird() {
     birdList.appendChild(birdItem);
     }
 };
+function displayWeather() {
+    weatherResultsEl.innerHTML = '';
+    weatherResultsEl.innerHTML = `
+    <h3>${weatherResults.name}</h3>
+    <p><img src="https://openweathermap.org/img/w/${weatherResults.weather[0].icon}.png"></p>
+    <p>Temperature: ${weatherResults.main.temp}</p>
+    <p>Humidity: ${weatherResults.main.humidity}</p>
+    <p>Wind Speed: ${weatherResults.wind.speed}</p>
+    <p>UV Index: ${weatherResults.uvi}</p>
+    <p>Visibility: ${weatherResults.visibility}</p>
+    <p>Clouds: ${weatherResults.clouds.all}</p>
+    <p>Weather: ${weatherResults.weather[0].description}</p>`
+}
