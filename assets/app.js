@@ -22,6 +22,8 @@ var requestOptions = {
     headers: myHeaders,
     redirect: 'follow'
 };
+let favBird = JSON.parse(localStorage.getItem('favBird')) || [];
+const birdName = document.querySelector('#bird-result');
 
 // Operations
 citySearchBtn.addEventListener('click', getAreaLL);
@@ -81,6 +83,7 @@ function getBird(lat, lon) {
             response.json().then(function(data) {
                 console.log(data);
                 birdResults = data;
+                displayBird();
             });
         } else {
             console.log('Error: getBird(): ' + response.statusText);
@@ -98,4 +101,31 @@ function getAllBird() {
             console.log('Error: getAllBird(): ' + response.statusText);
         };
     });
+};
+function displayBird() {
+    birdName.innerHTML = '';
+    const birdList = document.createElement('ul');
+    birdName.appendChild(birdList);
+    for (let i = 0; i < birdResults.length; i++) {
+        const birdItem = document.createElement('li');
+        birdItem.textContent = `${birdResults[i].comName}`
+        birdItem.setAttribute('data-comName', birdResults[i].comName);
+        birdItem.onclick = function() {
+            if (!favBird.includes(this.getAttribute('data-comName').value)) {
+                favBird.push(birdResults[i])
+                localStorage.setItem('favBird', JSON.stringify(favBird));
+            };
+            birdName.innerHTML = '';
+            birdName.innerHTML = `
+            <a href="#" onclick="displayBird()">Back</a>
+            <h3>${birdResults[i].comName}</h3>
+            <p>Scientific Name: ${birdResults[i].sciName}</p>
+            <p>Species Code: ${birdResults[i].speciesCode}</p>
+            <p>Family: ${birdResults[i].familyComName}</p>
+            <p>Location: ${birdResults[i].locName}</p>
+            <p>Observation Date: ${birdResults[i].obsDt}</p>
+            <p>Sightings: ${birdResults[i].howMany}</p>`;
+        };
+    birdList.appendChild(birdItem);
+    }
 };
