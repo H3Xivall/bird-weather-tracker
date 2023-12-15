@@ -129,7 +129,7 @@ function displayBird() {
             <p>Sightings: ${birdResults[i].howMany}</p>`;
         };
     birdList.appendChild(birdItem);
-    }
+    };
 };
 function displayWeather() {
     weatherResultsEl.innerHTML = '';
