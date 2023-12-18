@@ -65,7 +65,7 @@ function getAreaLL() {
     });
 };
 function getWeather(lat, lon) {
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}`;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${weatherApiKey}`;
     fetch(weatherUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
@@ -136,10 +136,9 @@ function displayWeather() {
     weatherResultsEl.innerHTML = `
     <h3>${weatherResults.name}</h3>
     <p><img src="https://openweathermap.org/img/w/${weatherResults.weather[0].icon}.png"></p>
-    <p>Temperature: ${weatherResults.main.temp}</p>
+    <p>Temperature: ${weatherResults.main.temp} °F</p>
     <p>Humidity: ${weatherResults.main.humidity}</p>
     <p>Wind Speed: ${weatherResults.wind.speed}</p>
-    <p>UV Index: ${weatherResults.uvi}</p>
     <p>Visibility: ${weatherResults.visibility}</p>
     <p>Clouds: ${weatherResults.clouds.all}</p>
     <p>Weather: ${weatherResults.weather[0].description}</p>`
