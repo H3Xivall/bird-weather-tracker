@@ -28,7 +28,7 @@ This project included forking and cloning our repositories from our main (on Rya
 
 ## Contributors
 
-- Cristine J (floater front-end/back-end, tasks)
+- Cristine J (floater front-end/back-end, project mgr)
 - Ryan H (back-end, JS Mastermind)
 - Chris R (front-end, Tailwinds)
 
@@ -44,7 +44,10 @@ This project included forking and cloning our repositories from our main (on Rya
 
 ## Screenshot of Bird-Weather-Tracker Site
 
-Deployed Site: 
+Deployed Site: https://cristinedior.github.io/bird-weather-tracker/
+
+![cristinedior github io_bird-weather-tracker_](https://github.com/cristinedior/bird-weather-tracker/assets/148567509/a017ad56-378a-4bd2-917c-07ac0649838d)
+
 
 
 ## License
